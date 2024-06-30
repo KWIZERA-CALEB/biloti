@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="year_name" placeholder="Year Name">
+        </div>
+        <div>
+            <input type="submit" name="submit" value="Add School Year">
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}

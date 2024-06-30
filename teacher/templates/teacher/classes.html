@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes Page</title>
+    <style>
+        .classes-cont{
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+        }
+
+        .classes-flex{
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .class{
+            background-color: #333;
+            width: 250px;
+            height: 150;
+            border-radius: 20px;
+            cursor: pointer;
+            color: #fff;
+            padding: 40px;
+        }
+    </style>
+</head>
+<body>
+    {% extends 'main.html' %}
+    
+    {% block content %}
+    <div>
+        <h1>Classes Page</h1>
+    </div>
+    
+    <div class="classes-cont">
+        <div>
+            <h3>Side Bar</h3>
+        </div>
+        <div>
+            <h3>List of class rooms {{class_rooms_count}}</h3>
+            {% include 'teacher/search.html' %}
+            {% if class_rooms_count == 0 %}
+            <div>
+                <h3>No Classroom found</h3>
+                <a href="{% url 'classes' %}">View All</a>
+            </div>
+            {% endif %}
+            <a href="{% url 'classes' %}">Back</a>
+            <div class="classes-flex">
+                {% for class_room in class_rooms %}
+                <div class="class">
+                    <h2>Class: <a href="{% url 'class' class_room.id %}">{{class_room.class_name}}</a></h2>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div style="display: flex; justify-content: space-between;">
+                <div>
+                    <button><a href="{% url 'add-class' %}">Add New Class</a></button>
+                </div>
+                <div>
+                    <button><a href="{% url 'add-school-year' %}">Add School Year</a></button>
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+
+    {% endblock %}
+</body>
+</html>

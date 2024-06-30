@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .terms-cont{
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+    </style>
+</head>
+<body>
+    <h1>Student Portal</h1>
+    <div style="background-color: #333; color: #fff; padding: 30px; border-radius: 20px; width: 100%;">
+        <div>
+            <img style="width: 60px; height: 60px; object-fit: cover; object-position: 50% 50%; border-radius: 50%;" src="{{student.student_avatar.url}}" alt="Profile">
+        </div>
+        <h3>{{student.student_name}}</h3>
+        <p>{{student.student_grade}}</p>
+        <p>{{student.student_gender}}</p>
+    </div>
+    <div>
+        <form action="{% url 'generate-report' student.id %}" method="POST">
+            {% csrf_token %}
+            <div>
+                <input type="submit" name="submit" value="Generate Report Card">
+            </div>
+        </form>
+    </div>
+    <!-- <div style="background-color: black; margin-top: 40px; width: 200px; color: white; padding: 30px; border-radius: 20px;">
+        {% for school_year in school_years %}
+        <div>
+            <h4><a href="{% url 'school-year' school_year.id %}">{{school_year.year_name}}</a></h4>
+            <p>Started:{{school_year.started|timesince}}</p>
+        </div>
+        {% endfor %}
+    </div> -->
+
+    <div>
+        <h3>School Year: 2023/2024</h3>
+        <hr>
+        <div class="terms-cont">
+            <div>
+                <h4>Term1</h4>
+                <div>
+                    <div><p>Math: 20/40</p></div>
+                    <div><p>English: 30/40</p></div>
+                    <div><p>Social Studies: 10/40</p></div>
+                    <div><p>Science: 30/40</p></div>
+                    <div><p>Kinyarwanda: 15/40</p></div>
+                    <div><p>Total: 120/200</p></div>
+                    <div><p>Position: 1/40</p></div>
+                    <div style="margin-top: 40px;">
+                        <button>Generate Report Term1</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h4>Term2</h4>
+                <div>
+                    <div><p>Math: 20/40</p></div>
+                    <div><p>English: 30/40</p></div>
+                    <div><p>Social Studies: 10/40</p></div>
+                    <div><p>Science: 30/40</p></div>
+                    <div><p>Kinyarwanda: 15/40</p></div>
+                    <div><p>Total: 120/200</p></div>
+                    <div><p>Position: 1/40</p></div>
+                    <div style="margin-top: 40px;">
+                        <button>Generate Report Term1</button>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h4>Term3</h4>
+                <div>
+                    <div><p>Math: 20/40</p></div>
+                    <div><p>English: 30/40</p></div>
+                    <div><p>Social Studies: 10/40</p></div>
+                    <div><p>Science: 30/40</p></div>
+                    <div><p>Kinyarwanda: 15/40</p></div>
+                    <div><p>Total: 120/200</p></div>
+                    <div><p>Position: 1/40</p></div>
+                    <div style="margin-top: 40px;">
+                        <button>Generate Report Term1</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

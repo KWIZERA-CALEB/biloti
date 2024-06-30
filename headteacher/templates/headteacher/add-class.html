@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Class</title>
+</head>
+<body>
+    <h1>Add Class Page</h1>
+    <div>
+        <form action="" method="POST">
+            {%  csrf_token %}
+            <div>
+                <input type="text" name="class_name" placeholder="Class name">
+            </div>
+            <div>
+                <input type="submit" name="submit" value="Add Class">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

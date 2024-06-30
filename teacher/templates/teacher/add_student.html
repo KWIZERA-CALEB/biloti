@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Student</title>
+</head>
+<body>
+    <h1>Add Student Page</h1>
+    <div>
+        <form action="" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <!-- <div style="margin-top: 30px; margin-bottom: 30px;">
+                <input type="text" name="student_name" placeholder="Student Name">
+            </div>
+
+            <div style="display: flex; margin-top: 30px; margin-bottom: 30px;">
+                <div>
+                    <input type="radio" id="male" name="student_gender" value="Male">
+                    <label for="male">Male</label>
+                </div>
+                <div>
+                    <input type="radio" id="female" name="student_gender" value="Female">
+                    <label for="female">Female</label>
+                </div>
+            </div>
+            
+            <div style="margin-top: 30px; margin-bottom: 30px;">
+                <input type="text" name="student_grade" placeholder="Student Grade">
+            </div> -->
+
+            <div style="margin-top: 30px; margin-bottom: 30px;">
+                <input type="submit" name="submit" value="Add Student">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<h3>School Year{{school_year.year_name}}</h3>
+<strong>Add School Terms</strong>
+
+<div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div>
+            <input type="text" name="term_name" placeholder="Term Name">
+        </div>
+        <div>
+            <input type="submit" name="submit" value="Add Term">
+        </div>
+    </form>
+</div>
+
+<div>
+    {% for render_term in render_terms %}
+    <div style="background-color: blue; margin-top: 40px; width: 200px; color: white; padding: 30px; border-radius: 20px;">
+        <div>
+            <h4><a href="{% url 'term' render_term.id %}">{{render_term.term_name}}</a></h4>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'main.html' %}
+
+{% block content %}
+<div>
+    <h3>{{classes.class_name}}</h3>
+    <p>Total Learners: {{students_class_rooms_count}}</p>
+    <div>
+        {% if students_class_rooms_count == 0 %}
+        <h4>This class doesn't have students</h4>
+        {% endif %}
+    </div>
+    <div>
+        {% for student in students %}
+        <div style="width: 100%; background-color: #333; padding: 10px; color: #fff; display: flex; gap: 30px;">
+            <div><p>{{student.student_name}}</p></div>
+            <div>
+                <img style="width: 60px; height: 60px; object-fit: cover; object-position: 50% 50%; border-radius: 50%;" src="{{student.student_avatar.url}}" alt="Profile">
+            </div>
+            <div><p>{{student.student_gender}}</p></div>
+            <div><p>{{student.student_grade}}</p></div>
+            <div><p><a href="{% url 'student' student.id %}">Manage Student</a></p></div>
+        </div>
+        
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
+
